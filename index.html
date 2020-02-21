@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap"); :root { --d: 700ms; --e: cubic-bezier(0.19, 1, 0.22, 1); --font-sans: 'Rubik', sans-serif; --font-serif: 'Cardo', serif; } * { box-sizing: border-box; } html, body { height: 100%; } body { display: grid; place-items: center; } .page-content { display: grid; grid-gap: 1rem; padding: 1rem; max-width: 1024px; margin: 0 auto; font-family: var(--font-sans); } @media (min-width: 600px) { .page-content { grid-template-columns: repeat(2, 1fr); } } @media (min-width: 800px) { .page-content { grid-template-columns: repeat(4, 1fr); } } .card { position: relative; display: -webkit-box; display: flex; -webkit-box-align: end; align-items: flex-end; overflow: hidden; padding: 1rem; width: 100%; text-align: center; color: whitesmoke; background-color: whitesmoke; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1); } @media (min-width: 600px) { .card { height: 350px; width: 215px;} } .card:before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 110%; background-size: cover; background-position: 0 0; -webkit-transition: -webkit-transform calc(var(--d) * 1.5) var(--e); transition: -webkit-transform calc(var(--d) * 1.5) var(--e); transition: transform calc(var(--d) * 1.5) var(--e); transition: transform calc(var(--d) * 1.5) var(--e), -webkit-transform calc(var(--d) * 1.5) var(--e); pointer-events: none; } .card:after { content: ''; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 200%; pointer-events: none; background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(11.7%, rgba(0, 0, 0, 0.009)), color-stop(22.1%, rgba(0, 0, 0, 0.034)), color-stop(31.2%, rgba(0, 0, 0, 0.072)), color-stop(39.4%, rgba(0, 0, 0, 0.123)), color-stop(46.6%, rgba(0, 0, 0, 0.182)), color-stop(53.1%, rgba(0, 0, 0, 0.249)), color-stop(58.9%, rgba(0, 0, 0, 0.32)), color-stop(64.3%, rgba(0, 0, 0, 0.394)), color-stop(69.3%, rgba(0, 0, 0, 0.468)), color-stop(74.1%, rgba(0, 0, 0, 0.54)), color-stop(78.8%, rgba(0, 0, 0, 0.607)), color-stop(83.6%, rgba(0, 0, 0, 0.668)), color-stop(88.7%, rgba(0, 0, 0, 0.721)), color-stop(94.1%, rgba(0, 0, 0, 0.762)), to(rgba(0, 0, 0, 0.79))); background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%); -webkit-transform: translateY(-50%); transform: translateY(-50%); -webkit-transition: -webkit-transform calc(var(--d) * 2) var(--e); transition: -webkit-transform calc(var(--d) * 2) var(--e); transition: transform calc(var(--d) * 2) var(--e); transition: transform calc(var(--d) * 2) var(--e), -webkit-transform calc(var(--d) * 2) var(--e); } .card:nth-child(1):before { background-image: url('nature.jpg'); } .card:nth-child(2):before { background-image: url(feather.png); } .card:nth-child(3):before { background-image: url(hassu.jpg); } .card:nth-child(4):before { background-image: url('pigeon.jpg'); } .content { position: relative; display: -webkit-box; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; -webkit-box-align: center; align-items: center; width: 100%; padding: 1rem; -webkit-transition: -webkit-transform var(--d) var(--e); transition: -webkit-transform var(--d) var(--e); transition: transform var(--d) var(--e); transition: transform var(--d) var(--e), -webkit-transform var(--d) var(--e); z-index: 1; } .content > * + * { margin-top: 1rem; } .title { font-size: 1.3rem; font-weight: bold; line-height: 1.2; } .copy { font-family: var(--font-serif); font-size: 1.125rem; font-style: italic; line-height: 1.35; } .btn { cursor: pointer; margin-top: 1.5rem; padding: 0.75rem 1.5rem; font-size: 0.65rem; font-weight: bold; letter-spacing: 0.025rem; text-transform: uppercase; color: white; background-color: black; border: none; } .btn:hover { background-color: #0d0d0d; } .btn:focus { outline: 1px dashed yellow; outline-offset: 3px; } @media (hover: hover) and (min-width: 600px) { .card:after { -webkit-transform: translateY(0); transform: translateY(0); } .content { -webkit-transform: translateY(calc(100% - 4.5rem)); transform: translateY(calc(100% - 4.5rem)); } .content > *:not(.title) { opacity: 0; -webkit-transform: translateY(1rem); transform: translateY(1rem); -webkit-transition: opacity var(--d) var(--e), -webkit-transform var(--d) var(--e); transition: opacity var(--d) var(--e), -webkit-transform var(--d) var(--e); transition: transform var(--d) var(--e), opacity var(--d) var(--e); transition: transform var(--d) var(--e), opacity var(--d) var(--e), -webkit-transform var(--d) var(--e); } .card:hover, .card:focus-within { -webkit-box-align: center; align-items: center; } .card:hover:before, .card:focus-within:before { -webkit-transform: translateY(-4%); transform: translateY(-4%); } .card:hover:after, .card:focus-within:after { -webkit-transform: translateY(-50%); transform: translateY(-50%); } .card:hover .content, .card:focus-within .content { -webkit-transform: translateY(0); transform: translateY(0); } .card:hover .content > *:not(.title), .card:focus-within .content > *:not(.title) { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); -webkit-transition-delay: calc(var(--d) / 8); transition-delay: calc(var(--d) / 8); } .card:focus-within:before, .card:focus-within:after, .card:focus-within .content, .card:focus-within .content > *:not(.title) { -webkit-transition-duration: 0s; transition-duration: 0s; } }
+</style>
+
+
+<title>PSV Joensuu</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="stylesheet2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="stylesheet3"> -->
+<!-- Yllä oleva stylesheet viite ei toimi täydellisesti: ikonit jäävät puuttumaan. Siksi sen yläpuolella on vielä alkuperäinen internetviite samalle css-tiedostolle. -->
+<body id="myPage">
+
+<!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+    <i class="fa fa-remove"></i>
+  </a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+  <a href="#" class="w3-bar-item w3-button">Link 5</a>
+</nav>
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>PSV Joensuu</a>
+  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Mikä ihmeen PSV?</a>
+  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">PODBLASTIT</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Tule mukaan!</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Linkit <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="https://vastuu.fi/" class="w3-bar-item w3-button">PSV:n kotisivut</a>
+      <a href="#" class="w3-bar-item w3-button">Linkki 2</a>
+      <a href="#" class="w3-bar-item w3-button">Linkki 3</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
+ </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#team" class="w3-bar-item w3-button">Team</a>
+    <a href="#work" class="w3-bar-item w3-button">Work</a>
+    <a href="#pricing" class="w3-bar-item w3-button">Price</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    <a href="#" class="w3-bar-item w3-button">Search</a>
+  </div>
+</div>
+
+<!-- Image Header -->
+
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top">
+    <header class="w3-container w3-teal w3-display-container"> 
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
+      <h4>Oh snap! We just showed you a modal..</h4>
+      <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+    </header>
+    <div class="w3-container">
+      <p>Cool huh? Ok, enough teasing around..</p>
+      <p>Go to our <a class="w3-text-teal" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+    </div>
+    <footer class="w3-container w3-teal">
+      <p>Modal footer</p>
+    </footer>
+  </div>
+</div>
+
+<div class="w3-container w3-padding-32 w3-center w3-animate-fading">
+<br><br><br>
+<h1 style="color:#226070;">PSYKOLOGIEN SOSIAALINEN VASTUU ry</h1>
+<h3 style="color:#226070;">⏤⏤<b> JOENSUUN PAIKALLISRYHMÄ </b>⏤⏤</h3>
+<br>
+<img src="dove.png" alt="kyyhky" style="width:150px;max-height:600px;">
+</div>
+
+<!-- Team Container -->
+<!-- <div class="w3-container w3-padding-100 w3-center" id="team">
+ <img src="psvlogo3.jpg" alt="psv-logo" style="width:35%"> LOGO POISSA KÄYTÖSTÄ -->
+
+</div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-display-container w3-animate-fading">
+<br><br>
+<img src="metsan_siluetti.png" alt="metsa" style="width:100%;max-height:600px;">
+
+
+
+
+
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work" style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.4)">
+<article class="w3-center">
+<img class="w3-padding-95" src="psvlogo4.jpg" alt="psv-logo" style="width:15%">
+</article>
+<div class="w3-half w3-padding-70"  style="margin-right: 95px";>
+
+
+<h2>Siis mikä PSV?</h2>
+<p><b>Tähän todellisuudessa oikeaa tekstiä eikä tätä toistelua</b>: Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<br>
+
+<h2>Kevään 2020 teema:<br>ilmasto</h2>
+<p><b>Tähän todellisuudessa oikeaa tekstiä eikä tätä toistelua</b>: Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<p>Psykologien Sosiaalinen Vastuu ry (PSV) on vuonna 1982 ammattialakohtaisena rauhanryhmänä perustettu yhdistys, joka seuraa, miten jokaisen ihmisen oikeus psyykkiseen ja sosiaaliseen hyvinvointiin toteutuu. PSV kutsuu kaikkia psykologeja, psykologian tutkijoita ja opiskelijoita käyttämään aktiivisesti psykologista osaamista edistämään näiden oikeuksien tasavertaista toteutumista. Toimimme sekä kansainvälisesti että kotimaassa.</p>
+<br>
+</div>
+
+<div class="w3-third">
+
+<div>
+<br><br><br>
+  <img src="ihmiset.png" alt="Ihmiset" style="width:100%">
+  </div>
+<br><br><br>
+</div>
+
+
+
+<div class="w3-third">
+<div class="w3-card-4">
+  <img src="aivot.jpg" alt="Vaaka" style="width:100%">
+  </div>
+<br><br><br><br><br><br><br>
+</div>
+
+<div class="w3-third">
+
+<div class="w3-card-4">
+  <img src="piiput.jpg" alt="Savupiiput" style="width:100%">
+  </div>
+</div>
+
+<div class="w3-third">
+<br>
+<div class="w3-card-4">
+  <img src="lehdet.jpg" alt="Lehdet" style="width:100%">
+  </div>
+
+</div>
+
+</div>
+
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<br>
+<img src="dove2.png" alt="dove" style="width:110px;max-height:600px;">
+<h2 style="color:#226070">Jotain matskua tähän väliin</h2>
+<p style="color:#226070">Kuvia, tekstiä tms....</p>
+</div>
+
+<!-- Work Row -->
+
+<!-- Image Header -->
+
+
+<img src="metsan_siluetti.png" alt="metsa" style="width:100%;max-height:600px;">
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work" style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.4)">
+
+<!-- PODBLAST-rivi -->
+<div class="w3-container w3-padding-64 w3-center" id="pricing">
+<h2>⇜ PODBLASTIT ⇝</h2>
+<p>Tähän podblastien kuvausta.</p>
+<main class="page-content"> <div class="card"> <div class="content"> <h2 class="title">Podblast #1</h2><p class="copy">Jakson kuvaus.</p><button class="btn">Kuuntele</button> </div> </div> <div class="card"> <div class="content"> <h2 class="title">Podblast #2</h2> <p class="copy">Jakson kuvaus.</p> <button class="btn">Kuuntele</button> </div> </div> <div class="card"> <div class="content"> <h2 class="title">Podblast #3</h2> <p class="copy">Jakson kuvaus.</p> <button class="btn">Kuuntele</button> </div> </div> <div class="card"> <div class="content"> <h2 class="title">Podblast #4</h2> <p class="copy">Jakson kuvaus.</p> <button class="btn">Kuuntele</button></div></main>
+</div>
+
+</div>
+
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+
+    <div class="w3-padding-16" style="color:#226070"><span class="w3-xlarge w3-border-teal">Täältä meidät tavoittaa:</span></div>
+      <p style="color:#226070"><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  050 xxx xxxx</p>
+      <p style="color:#226070"><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  joensuu@vastuu.fi</p>
+    </div>
+    <div class="w3-col m7">
+<h3 style="color:#226070"><b>Jos haluat mukaan toimintaan</b>, voit jättää tietosi tähän.<br>Olemme sinuun yhteydessä.</h3>
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+      <div class="w3-section">      
+        <label style="color:#226070">Nimesi</label>
+        <input class="w3-input" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">      
+        <label style="color:#226070">Sähköpostisi tai puhelinnumerosi</label>
+        <input class="w3-input" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+      </div>  
+      <input class="w3-check" type="checkbox" checked name="Like">
+      <label style="color:#226070">Kyllä, haluan mukaan tekemään maailmasta parempaa paikkaa!</label>
+      <button type="submit" class="w3-button w3-right w3-theme">Lähetä</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+
+  
+
+
+
+<!-- Viimeinen palkki -->
+
+<!-- Image Header -->
+
+
+<div class="w3-display-container w3-animate-opacity">
+<img src="metsan_siluetti.png" alt="metsa" style="width:100%;max-height:600px;">
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work" style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.4)">
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+<h4>Löydät meidät myös Facebookista</h4>
+  <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a>
+
+<div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-padding w3-teal w3-hide-small">Takaisin ylös</span>   
+    <a class=" w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>  
+<p>Sivuston tekemisessä apuna: <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</div>
+</div>
+</footer>
+
+</article>
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
